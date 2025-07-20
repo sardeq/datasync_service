@@ -27,6 +27,7 @@ namespace DataSync_Service
         public Service1()
         {
             InitializeComponent();
+            this.ServiceName = "DataSync_Service";
             _logFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SyncLog.txt");
         }
 

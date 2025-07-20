@@ -1,7 +1,6 @@
 C:\Users\sodeh\source\repos\DataSync_Service\bin\Debug\DataSync_Service.exe.config
 C:\Users\sodeh\source\repos\DataSync_Service\bin\Debug\DataSync_Service.exe
 C:\Users\sodeh\source\repos\DataSync_Service\bin\Debug\DataSync_Service.pdb
-C:\Users\sodeh\source\repos\DataSync_Service\obj\Debug\DataSync_Service.csprojAssemblyReference.cache
 C:\Users\sodeh\source\repos\DataSync_Service\obj\Debug\DataSync_Service.csproj.CoreCompileInputs.cache
 C:\Users\sodeh\source\repos\DataSync_Service\obj\Debug\DataSync_Service.exe
 C:\Users\sodeh\source\repos\DataSync_Service\obj\Debug\DataSync_Service.pdb

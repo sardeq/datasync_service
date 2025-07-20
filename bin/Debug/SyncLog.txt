@@ -1,0 +1,38 @@
+2025-07-20 13:19:01 - Service starting...
+2025-07-20 13:20:01 - Sync started
+2025-07-20 13:20:15 - Error syncing EmpVacationsTransactions: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+2025-07-20 13:20:15 - Sync failed: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+2025-07-20 13:21:15 - Sync started
+2025-07-20 13:21:25 - Error syncing EmpVacationsTransactions: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+2025-07-20 13:21:25 - Sync failed: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+2025-07-20 13:22:25 - Sync started
+2025-07-20 13:22:35 - Error syncing EmpVacationsTransactions: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+2025-07-20 13:22:35 - Sync failed: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+2025-07-20 13:23:35 - Sync started
+2025-07-20 13:23:45 - Error syncing EmpVacationsTransactions: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+2025-07-20 13:23:45 - Sync failed: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+2025-07-20 13:24:45 - Sync started
+2025-07-20 13:24:55 - Error syncing EmpVacationsTransactions: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+2025-07-20 13:24:55 - Sync failed: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+2025-07-20 13:25:55 - Sync started
+2025-07-20 13:26:06 - Error syncing EmpVacationsTransactions: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+2025-07-20 13:26:06 - Sync failed: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+2025-07-20 13:27:06 - Sync started
+2025-07-20 13:27:16 - Error syncing EmpVacationsTransactions: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+2025-07-20 13:27:16 - Sync failed: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+2025-07-20 13:28:16 - Sync started
+2025-07-20 13:28:17 - Service stopped.
