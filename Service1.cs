@@ -13,14 +13,14 @@ namespace DataSync_Service
         private System.Timers.Timer _syncTimer;
         private readonly object _syncLock = new object();
         private string _logFilePath;
-        private WebServiceRef.WebService _webService = new WebServiceRef.WebService();
+        private readonly DataSync dataSync;
 
         public Service1()
         {
             InitializeComponent();
             ServiceName = "DataSync_Service";
             _logFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SyncLog.txt");
-            _webService.Timeout = 3600000; // 1 hour timeout
+            dataSync = new DataSync();
         }
 
         protected override void OnStart(string[] args)
@@ -49,9 +49,9 @@ namespace DataSync_Service
             try
             {
                 _syncTimer.Stop();
-                LogService("Starting sync via web service...");
-                _webService.SyncAllTables();
-                LogService("Sync completed via web service");
+                LogService("Starting sync...");
+                dataSync.SyncAllTables();
+                LogService("Sync completed");
             }
             catch (Exception ex)
             {

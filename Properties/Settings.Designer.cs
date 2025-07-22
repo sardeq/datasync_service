@@ -22,15 +22,5 @@ namespace DataSync_Service.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44380/WebService.asmx")]
-        public string DataSync_Service_WebServiceRef_WebService {
-            get {
-                return ((string)(this["DataSync_Service_WebServiceRef_WebService"]));
-            }
-        }
     }
 }
