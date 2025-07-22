@@ -1,6 +1,29 @@
-2025-07-22 11:02:43 - Starting sync...
-2025-07-22 11:02:43 - Sync failed: Object reference not set to an instance of an object.
-2025-07-22 11:03:43 - Starting sync...
-2025-07-22 11:03:43 - Sync failed: Object reference not set to an instance of an object.
-2025-07-22 11:04:23 - Service stopped.
-2025-07-22 11:06:06 - Service starting...
+2025-07-22 12:09:43 - Service starting...
+2025-07-22 12:10:43 - Starting sync...
+2025-07-22 12:10:43 - Sync started at DataSync Class
+2025-07-22 12:10:44 - Error syncing Employees: String or binary data would be truncated in table 'Sadeq_destinationDb.dbo.Employees', column 'AccountNo'. Truncated value: '(2401000'.
+The statement has been terminated.
+2025-07-22 12:10:44 - Sync failed: System.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated in table 'Sadeq_destinationDb.dbo.Employees', column 'AccountNo'. Truncated value: '(2401000'.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlBulkCopy.RunParser(BulkCopySimpleResultSet bulkCopyHandler)
+   at System.Data.SqlClient.SqlBulkCopy.CopyBatchesAsyncContinuedOnSuccess(BulkCopySimpleResultSet internalResults, String updateBulkCommandText, CancellationToken cts, TaskCompletionSource`1 source)
+   at System.Data.SqlClient.SqlBulkCopy.CopyBatchesAsyncContinued(BulkCopySimpleResultSet internalResults, String updateBulkCommandText, CancellationToken cts, TaskCompletionSource`1 source)
+   at System.Data.SqlClient.SqlBulkCopy.CopyBatchesAsync(BulkCopySimpleResultSet internalResults, String updateBulkCommandText, CancellationToken cts, TaskCompletionSource`1 source)
+   at System.Data.SqlClient.SqlBulkCopy.WriteToServerInternalRestContinuedAsync(BulkCopySimpleResultSet internalResults, CancellationToken cts, TaskCompletionSource`1 source)
+   at System.Data.SqlClient.SqlBulkCopy.WriteToServerInternalRestAsync(CancellationToken cts, TaskCompletionSource`1 source)
+   at System.Data.SqlClient.SqlBulkCopy.WriteToServerInternalAsync(CancellationToken ctoken)
+   at System.Data.SqlClient.SqlBulkCopy.WriteRowSourceToServerAsync(Int32 columnCount, CancellationToken ctoken)
+   at System.Data.SqlClient.SqlBulkCopy.WriteToServer(DataTable table, DataRowState rowState)
+   at System.Data.SqlClient.SqlBulkCopy.WriteToServer(DataTable table)
+   at DataSync_Service.DataSync.BulkInsert(SqlConnection conn, String tableName, DataTable data) in C:\Users\sodeh\source\repos\DataSync_Service\DataSync.cs:line 196
+   at DataSync_Service.DataSync.SyncEmployees(SqlConnection destConn) in C:\Users\sodeh\source\repos\DataSync_Service\DataSync.cs:line 109
+   at DataSync_Service.DataSync.SyncAllTables() in C:\Users\sodeh\source\repos\DataSync_Service\DataSync.cs:line 47
+ClientConnectionId:1d303bef-a87f-4966-8ce9-b6faa97d9354
+Error Number:2628,State:1,Class:16
+2025-07-22 12:10:44 - Sync completed
+2025-07-22 12:11:31 - Service stopped.

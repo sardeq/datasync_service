@@ -35,7 +35,7 @@ namespace DataSync_Service
 
             try
             {
-                LogService("Sync started at web service");
+                LogService("Sync started at DataSync Class");
 
                 using (var destConn = new SqlConnection(_destConnString))
                 {
@@ -49,7 +49,7 @@ namespace DataSync_Service
                     SyncTable(destConn, "EmployeesPreBalances", "EmployeesPreBalancesID");
                 }
 
-                LogService("Sync completed successfully at web service");
+                LogService("Sync completed successfully at DataSync Class");
             }
             catch (Exception ex)
             {
@@ -101,10 +101,7 @@ namespace DataSync_Service
 
                 if (newEmployees.Rows.Count == 0) return;
 
-                LogService($"Found {newEmployees.Rows.Count} new records in Employees");
-                ExecuteNonQuery(destConn, "SET IDENTITY_INSERT Employees ON");
                 BulkInsert(destConn, "Employees", newEmployees);
-                ExecuteNonQuery(destConn, "SET IDENTITY_INSERT Employees OFF");
             }
             catch (Exception ex)
             {
