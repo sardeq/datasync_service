@@ -1,38 +1,46 @@
-2025-07-20 13:19:01 - Service starting...
-2025-07-20 13:20:01 - Sync started
-2025-07-20 13:20:15 - Error syncing EmpVacationsTransactions: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
-Login failed for user 'NT AUTHORITY\SYSTEM'.
-2025-07-20 13:20:15 - Sync failed: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
-Login failed for user 'NT AUTHORITY\SYSTEM'.
-2025-07-20 13:21:15 - Sync started
-2025-07-20 13:21:25 - Error syncing EmpVacationsTransactions: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
-Login failed for user 'NT AUTHORITY\SYSTEM'.
-2025-07-20 13:21:25 - Sync failed: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
-Login failed for user 'NT AUTHORITY\SYSTEM'.
-2025-07-20 13:22:25 - Sync started
-2025-07-20 13:22:35 - Error syncing EmpVacationsTransactions: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
-Login failed for user 'NT AUTHORITY\SYSTEM'.
-2025-07-20 13:22:35 - Sync failed: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
-Login failed for user 'NT AUTHORITY\SYSTEM'.
-2025-07-20 13:23:35 - Sync started
-2025-07-20 13:23:45 - Error syncing EmpVacationsTransactions: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
-Login failed for user 'NT AUTHORITY\SYSTEM'.
-2025-07-20 13:23:45 - Sync failed: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
-Login failed for user 'NT AUTHORITY\SYSTEM'.
-2025-07-20 13:24:45 - Sync started
-2025-07-20 13:24:55 - Error syncing EmpVacationsTransactions: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
-Login failed for user 'NT AUTHORITY\SYSTEM'.
-2025-07-20 13:24:55 - Sync failed: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
-Login failed for user 'NT AUTHORITY\SYSTEM'.
-2025-07-20 13:25:55 - Sync started
-2025-07-20 13:26:06 - Error syncing EmpVacationsTransactions: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
-Login failed for user 'NT AUTHORITY\SYSTEM'.
-2025-07-20 13:26:06 - Sync failed: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
-Login failed for user 'NT AUTHORITY\SYSTEM'.
-2025-07-20 13:27:06 - Sync started
-2025-07-20 13:27:16 - Error syncing EmpVacationsTransactions: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
-Login failed for user 'NT AUTHORITY\SYSTEM'.
-2025-07-20 13:27:16 - Sync failed: Cannot open database "Sadeq_sourceDb" requested by the login. The login failed.
-Login failed for user 'NT AUTHORITY\SYSTEM'.
-2025-07-20 13:28:16 - Sync started
-2025-07-20 13:28:17 - Service stopped.
+2025-07-22 10:34:25 - Service starting...
+2025-07-22 10:35:25 - Starting sync via web service...
+2025-07-22 10:35:26 - Sync completed via web service
+2025-07-22 10:36:26 - Starting sync via web service...
+2025-07-22 10:36:26 - Sync completed via web service
+2025-07-22 10:37:26 - Starting sync via web service...
+2025-07-22 10:37:26 - Sync completed via web service
+2025-07-22 10:38:26 - Starting sync via web service...
+2025-07-22 10:38:26 - Sync completed via web service
+2025-07-22 10:39:26 - Starting sync via web service...
+2025-07-22 10:39:26 - Sync completed via web service
+2025-07-22 10:40:26 - Starting sync via web service...
+2025-07-22 10:40:26 - Sync completed via web service
+2025-07-22 10:41:26 - Starting sync via web service...
+2025-07-22 10:41:26 - Sync completed via web service
+2025-07-22 10:42:26 - Starting sync via web service...
+2025-07-22 10:42:26 - Sync completed via web service
+2025-07-22 10:43:26 - Starting sync via web service...
+2025-07-22 10:43:26 - Sync completed via web service
+2025-07-22 10:44:26 - Starting sync via web service...
+2025-07-22 10:44:26 - Sync completed via web service
+2025-07-22 10:45:26 - Starting sync via web service...
+2025-07-22 10:45:26 - Sync completed via web service
+2025-07-22 10:46:26 - Starting sync via web service...
+2025-07-22 10:46:26 - Sync completed via web service
+2025-07-22 10:47:26 - Starting sync via web service...
+2025-07-22 10:47:26 - Sync completed via web service
+2025-07-22 10:48:26 - Starting sync via web service...
+2025-07-22 10:48:26 - Sync completed via web service
+2025-07-22 10:49:26 - Starting sync via web service...
+2025-07-22 10:49:27 - Sync completed via web service
+2025-07-22 10:49:58 - Service stopped.
+2025-07-22 10:50:19 - Service starting...
+2025-07-22 10:51:19 - Starting sync via web service...
+2025-07-22 10:51:19 - Sync completed via web service
+2025-07-22 10:52:19 - Starting sync via web service...
+2025-07-22 10:52:19 - Sync completed via web service
+2025-07-22 10:53:19 - Starting sync via web service...
+2025-07-22 10:53:19 - Sync completed via web service
+2025-07-22 10:54:19 - Starting sync via web service...
+2025-07-22 10:54:20 - Sync completed via web service
+2025-07-22 10:55:20 - Starting sync via web service...
+2025-07-22 10:55:20 - Sync completed via web service
+2025-07-22 10:56:20 - Starting sync via web service...
+2025-07-22 10:56:20 - Sync completed via web service
+2025-07-22 10:56:51 - Service stopped.
