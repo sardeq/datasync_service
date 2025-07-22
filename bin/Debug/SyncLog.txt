@@ -97,3 +97,17 @@ ClientConnectionId:b5524379-6a8d-4fa0-9605-c08f5941c9cc
 Error Number:2628,State:1,Class:16
 2025-07-22 12:36:36 - Sync completed
 2025-07-22 12:37:28 - Service stopped.
+2025-07-22 12:44:54 - Service starting...
+2025-07-22 12:45:54 - Starting sync...
+2025-07-22 12:45:54 - Sync started at DataSync Class
+2025-07-22 12:45:55 - Inserting AccountNo: '10                                                ' (length: 50)
+2025-07-22 12:45:55 - Sync completed successfully at DataSync Class
+2025-07-22 12:45:55 - Sync completed
+2025-07-22 12:46:21 - Service stopped.
+2025-07-22 13:00:57 - Service starting...
+2025-07-22 13:01:57 - Starting sync...
+2025-07-22 13:01:57 - Sync started at DataSync Class
+2025-07-22 13:01:58 - Inserting AccountNo: '22310400' (length: 8)
+2025-07-22 13:01:58 - Sync completed successfully at DataSync Class
+2025-07-22 13:01:58 - Sync completed
+2025-07-22 13:02:14 - Service stopped.
