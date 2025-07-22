@@ -95,6 +95,12 @@ namespace DataSync_Service
                     string userName = row["UserName"].ToString();
                     if (!existingUserNames.Contains(userName))
                     {
+                        if (row.IsNull("AccountNo"))
+                        {
+                            row["AccountNo"] = "24010000";
+                        }
+                        string accountNo = row["AccountNo"].ToString();
+                        LogService($"Inserting AccountNo: '{accountNo}' (length: {accountNo.Length})");
                         newEmployees.ImportRow(row);
                     }
                 }

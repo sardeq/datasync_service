@@ -1,9 +1,23 @@
-2025-07-22 12:09:43 - Service starting...
-2025-07-22 12:10:43 - Starting sync...
-2025-07-22 12:10:43 - Sync started at DataSync Class
-2025-07-22 12:10:44 - Error syncing Employees: String or binary data would be truncated in table 'Sadeq_destinationDb.dbo.Employees', column 'AccountNo'. Truncated value: '(2401000'.
+2025-07-22 12:29:35 - Service starting...
+2025-07-22 12:30:35 - Starting sync...
+2025-07-22 12:30:35 - Sync started at DataSync Class
+2025-07-22 12:30:36 - Inserting AccountNo: '10                                                ' (length: 50)
+2025-07-22 12:30:36 - Inserting AccountNo: '11                                                ' (length: 50)
+2025-07-22 12:30:36 - Sync completed successfully at DataSync Class
+2025-07-22 12:30:36 - Sync completed
+2025-07-22 12:31:36 - Starting sync...
+2025-07-22 12:31:36 - Sync started at DataSync Class
+2025-07-22 12:31:36 - Inserting AccountNo: '24010000                                          ' (length: 50)
+2025-07-22 12:31:36 - Sync completed successfully at DataSync Class
+2025-07-22 12:31:36 - Sync completed
+2025-07-22 12:32:01 - Service stopped.
+2025-07-22 12:33:35 - Service starting...
+2025-07-22 12:34:35 - Starting sync...
+2025-07-22 12:34:35 - Sync started at DataSync Class
+2025-07-22 12:34:36 - Inserting AccountNo: '24013000' (length: 8)
+2025-07-22 12:34:36 - Error syncing Employees: String or binary data would be truncated in table 'Sadeq_destinationDb.dbo.Employees', column 'AccountNo'. Truncated value: '(2401000'.
 The statement has been terminated.
-2025-07-22 12:10:44 - Sync failed: System.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated in table 'Sadeq_destinationDb.dbo.Employees', column 'AccountNo'. Truncated value: '(2401000'.
+2025-07-22 12:34:36 - Sync failed: System.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated in table 'Sadeq_destinationDb.dbo.Employees', column 'AccountNo'. Truncated value: '(2401000'.
 The statement has been terminated.
    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
    at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
@@ -20,10 +34,66 @@ The statement has been terminated.
    at System.Data.SqlClient.SqlBulkCopy.WriteRowSourceToServerAsync(Int32 columnCount, CancellationToken ctoken)
    at System.Data.SqlClient.SqlBulkCopy.WriteToServer(DataTable table, DataRowState rowState)
    at System.Data.SqlClient.SqlBulkCopy.WriteToServer(DataTable table)
-   at DataSync_Service.DataSync.BulkInsert(SqlConnection conn, String tableName, DataTable data) in C:\Users\sodeh\source\repos\DataSync_Service\DataSync.cs:line 196
-   at DataSync_Service.DataSync.SyncEmployees(SqlConnection destConn) in C:\Users\sodeh\source\repos\DataSync_Service\DataSync.cs:line 109
+   at DataSync_Service.DataSync.BulkInsert(SqlConnection conn, String tableName, DataTable data) in C:\Users\sodeh\source\repos\DataSync_Service\DataSync.cs:line 202
+   at DataSync_Service.DataSync.SyncEmployees(SqlConnection destConn) in C:\Users\sodeh\source\repos\DataSync_Service\DataSync.cs:line 115
    at DataSync_Service.DataSync.SyncAllTables() in C:\Users\sodeh\source\repos\DataSync_Service\DataSync.cs:line 47
-ClientConnectionId:1d303bef-a87f-4966-8ce9-b6faa97d9354
+ClientConnectionId:b5524379-6a8d-4fa0-9605-c08f5941c9cc
 Error Number:2628,State:1,Class:16
-2025-07-22 12:10:44 - Sync completed
-2025-07-22 12:11:31 - Service stopped.
+2025-07-22 12:34:36 - Sync completed
+2025-07-22 12:35:36 - Starting sync...
+2025-07-22 12:35:36 - Sync started at DataSync Class
+2025-07-22 12:35:36 - Inserting AccountNo: '24013000' (length: 8)
+2025-07-22 12:35:36 - Error syncing Employees: String or binary data would be truncated in table 'Sadeq_destinationDb.dbo.Employees', column 'AccountNo'. Truncated value: '(2401000'.
+The statement has been terminated.
+2025-07-22 12:35:36 - Sync failed: System.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated in table 'Sadeq_destinationDb.dbo.Employees', column 'AccountNo'. Truncated value: '(2401000'.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlBulkCopy.RunParser(BulkCopySimpleResultSet bulkCopyHandler)
+   at System.Data.SqlClient.SqlBulkCopy.CopyBatchesAsyncContinuedOnSuccess(BulkCopySimpleResultSet internalResults, String updateBulkCommandText, CancellationToken cts, TaskCompletionSource`1 source)
+   at System.Data.SqlClient.SqlBulkCopy.CopyBatchesAsyncContinued(BulkCopySimpleResultSet internalResults, String updateBulkCommandText, CancellationToken cts, TaskCompletionSource`1 source)
+   at System.Data.SqlClient.SqlBulkCopy.CopyBatchesAsync(BulkCopySimpleResultSet internalResults, String updateBulkCommandText, CancellationToken cts, TaskCompletionSource`1 source)
+   at System.Data.SqlClient.SqlBulkCopy.WriteToServerInternalRestContinuedAsync(BulkCopySimpleResultSet internalResults, CancellationToken cts, TaskCompletionSource`1 source)
+   at System.Data.SqlClient.SqlBulkCopy.WriteToServerInternalRestAsync(CancellationToken cts, TaskCompletionSource`1 source)
+   at System.Data.SqlClient.SqlBulkCopy.WriteToServerInternalAsync(CancellationToken ctoken)
+   at System.Data.SqlClient.SqlBulkCopy.WriteRowSourceToServerAsync(Int32 columnCount, CancellationToken ctoken)
+   at System.Data.SqlClient.SqlBulkCopy.WriteToServer(DataTable table, DataRowState rowState)
+   at System.Data.SqlClient.SqlBulkCopy.WriteToServer(DataTable table)
+   at DataSync_Service.DataSync.BulkInsert(SqlConnection conn, String tableName, DataTable data) in C:\Users\sodeh\source\repos\DataSync_Service\DataSync.cs:line 202
+   at DataSync_Service.DataSync.SyncEmployees(SqlConnection destConn) in C:\Users\sodeh\source\repos\DataSync_Service\DataSync.cs:line 115
+   at DataSync_Service.DataSync.SyncAllTables() in C:\Users\sodeh\source\repos\DataSync_Service\DataSync.cs:line 47
+ClientConnectionId:b5524379-6a8d-4fa0-9605-c08f5941c9cc
+Error Number:2628,State:1,Class:16
+2025-07-22 12:35:36 - Sync completed
+2025-07-22 12:36:36 - Starting sync...
+2025-07-22 12:36:36 - Sync started at DataSync Class
+2025-07-22 12:36:36 - Inserting AccountNo: '10      ' (length: 8)
+2025-07-22 12:36:36 - Error syncing Employees: String or binary data would be truncated in table 'Sadeq_destinationDb.dbo.Employees', column 'AccountNo'. Truncated value: '(2401000'.
+The statement has been terminated.
+2025-07-22 12:36:36 - Sync failed: System.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated in table 'Sadeq_destinationDb.dbo.Employees', column 'AccountNo'. Truncated value: '(2401000'.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlBulkCopy.RunParser(BulkCopySimpleResultSet bulkCopyHandler)
+   at System.Data.SqlClient.SqlBulkCopy.CopyBatchesAsyncContinuedOnSuccess(BulkCopySimpleResultSet internalResults, String updateBulkCommandText, CancellationToken cts, TaskCompletionSource`1 source)
+   at System.Data.SqlClient.SqlBulkCopy.CopyBatchesAsyncContinued(BulkCopySimpleResultSet internalResults, String updateBulkCommandText, CancellationToken cts, TaskCompletionSource`1 source)
+   at System.Data.SqlClient.SqlBulkCopy.CopyBatchesAsync(BulkCopySimpleResultSet internalResults, String updateBulkCommandText, CancellationToken cts, TaskCompletionSource`1 source)
+   at System.Data.SqlClient.SqlBulkCopy.WriteToServerInternalRestContinuedAsync(BulkCopySimpleResultSet internalResults, CancellationToken cts, TaskCompletionSource`1 source)
+   at System.Data.SqlClient.SqlBulkCopy.WriteToServerInternalRestAsync(CancellationToken cts, TaskCompletionSource`1 source)
+   at System.Data.SqlClient.SqlBulkCopy.WriteToServerInternalAsync(CancellationToken ctoken)
+   at System.Data.SqlClient.SqlBulkCopy.WriteRowSourceToServerAsync(Int32 columnCount, CancellationToken ctoken)
+   at System.Data.SqlClient.SqlBulkCopy.WriteToServer(DataTable table, DataRowState rowState)
+   at System.Data.SqlClient.SqlBulkCopy.WriteToServer(DataTable table)
+   at DataSync_Service.DataSync.BulkInsert(SqlConnection conn, String tableName, DataTable data) in C:\Users\sodeh\source\repos\DataSync_Service\DataSync.cs:line 202
+   at DataSync_Service.DataSync.SyncEmployees(SqlConnection destConn) in C:\Users\sodeh\source\repos\DataSync_Service\DataSync.cs:line 115
+   at DataSync_Service.DataSync.SyncAllTables() in C:\Users\sodeh\source\repos\DataSync_Service\DataSync.cs:line 47
+ClientConnectionId:b5524379-6a8d-4fa0-9605-c08f5941c9cc
+Error Number:2628,State:1,Class:16
+2025-07-22 12:36:36 - Sync completed
+2025-07-22 12:37:28 - Service stopped.
