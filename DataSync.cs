@@ -62,19 +62,55 @@ namespace DataSync_Service
             }
         }
 
+        private DateTime GetLastSyncTime(string tableName)
+        {
+            string syncFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"LastSync_{tableName}.txt");
+            if (File.Exists(syncFile))
+            {
+                string content = File.ReadAllText(syncFile);
+                if (DateTime.TryParse(content, out DateTime lastSync))
+                    return lastSync;
+            }
+            // Use minimum SQL Server datetime value
+            return new DateTime(1753, 1, 1);
+        }
+
+        private void SetLastSyncTime(string tableName, DateTime syncTime)
+        {
+            string syncFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"LastSync_{tableName}.txt");
+            File.WriteAllText(syncFile, syncTime.ToString("o"));
+        }
+
         private void SyncTable(SqlConnection destConn, string tableName, string identityColumn)
         {
             try
             {
-                long maxDestId = GetMaxIdentity(destConn, tableName, identityColumn);
-                DataTable newRecords = GetNewRecordsFromSource(tableName, identityColumn, maxDestId);
+                DateTime lastSyncTime = GetLastSyncTime(tableName);
+                DataTable changedRecords = GetChangedRecordsFromSource(tableName, lastSyncTime);
 
-                if (newRecords.Rows.Count == 0) return;
+                if (changedRecords.Rows.Count == 0)
+                {
+                    SetLastSyncTime(tableName, DateTime.Now);
+                    return;
+                }
 
-                LogService($"Found {newRecords.Rows.Count} new records in {tableName}");
-                ExecuteNonQuery(destConn, $"SET IDENTITY_INSERT {tableName} ON");
-                BulkInsert(destConn, tableName, newRecords);
-                ExecuteNonQuery(destConn, $"SET IDENTITY_INSERT {tableName} OFF");
+                LogService($"Found {changedRecords.Rows.Count} changed records in {tableName}");
+
+                foreach (DataRow row in changedRecords.Rows)
+                {
+                    bool isDeleted = row.Table.Columns.Contains("IsDeleted") && row["IsDeleted"] != DBNull.Value && Convert.ToBoolean(row["IsDeleted"]);
+                    object id = row[identityColumn];
+                    if (isDeleted)
+                    {
+                        DeleteRecord(destConn, tableName, identityColumn, id);
+                    }
+                    else
+                    {
+                        UpsertRecord(destConn, tableName, identityColumn, row);
+                    }
+                }
+
+                SetLastSyncTime(tableName, DateTime.Now);
             }
             catch (Exception ex)
             {
@@ -83,38 +119,75 @@ namespace DataSync_Service
             }
         }
 
-        private void SyncEmployees(SqlConnection destConn)
+        private DataTable GetChangedRecordsFromSource(string tableName, DateTime lastSyncTime)
         {
-            try
+            using (var conn = new SqlConnection(_sourceConnString))
             {
-                var existingUserNames = GetExistingUserNames(destConn);
-                DataTable sourceEmployees = GetAllEmployeesFromSource();
-                DataTable newEmployees = sourceEmployees.Clone();
-
-                foreach (DataRow row in sourceEmployees.Rows)
+                conn.Open();
+                string query = $"SELECT * FROM {tableName} WHERE LastModified > @lastSyncTime";
+                using (var cmd = new SqlCommand(query, conn))
                 {
-                    string userName = row["UserName"].ToString();
-                    if (!existingUserNames.Contains(userName))
+                    cmd.Parameters.AddWithValue("@lastSyncTime", lastSyncTime);
+                    using (var da = new SqlDataAdapter(cmd))
                     {
-                        if (row.IsNull("AccountNo"))
-                        {
-                            row["AccountNo"] = "24010000";
-                        }
-                        string accountNo = row["AccountNo"].ToString();
-                        LogService($"Inserting AccountNo: '{accountNo}' (length: {accountNo.Length})");
-                        newEmployees.ImportRow(row);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        return dt;
                     }
                 }
-
-                if (newEmployees.Rows.Count == 0) return;
-
-                BulkInsert(destConn, "Employees", newEmployees);
             }
-            catch (Exception ex)
+        }
+
+        private void DeleteRecord(SqlConnection conn, string tableName, string identityColumn, object id)
+        {
+            string query = $"DELETE FROM {tableName} WHERE {identityColumn} = @id";
+            using (var cmd = new SqlCommand(query, conn))
             {
-                LogService($"Error syncing Employees: {ex.Message}");
-                throw;
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
             }
+        }
+
+        private void UpsertRecord(SqlConnection conn, string tableName, string identityColumn, DataRow row)
+        {
+            // Build upsert logic: try update, if no rows affected, insert
+            var columns = row.Table.Columns.Cast<DataColumn>().Where(c => c.ColumnName != identityColumn).ToList();
+            var setClause = string.Join(", ", columns.Select(c => $"{c.ColumnName} = @{c.ColumnName}"));
+            var updateQuery = $"UPDATE {tableName} SET {setClause} WHERE {identityColumn} = @{identityColumn}";
+            using (var cmd = new SqlCommand(updateQuery, conn))
+            {
+                foreach (var col in columns)
+                    cmd.Parameters.AddWithValue($"@{col.ColumnName}", row[col.ColumnName] ?? DBNull.Value);
+                cmd.Parameters.AddWithValue($"@{identityColumn}", row[identityColumn]);
+                int affected = cmd.ExecuteNonQuery();
+                if (affected == 0)
+                {
+                    // Insert
+                    var allColumns = row.Table.Columns.Cast<DataColumn>().ToList();
+                    var colNames = string.Join(", ", allColumns.Select(c => c.ColumnName));
+                    var paramNames = string.Join(", ", allColumns.Select(c => $"@{c.ColumnName}"));
+                    var insertQuery = $"INSERT INTO {tableName} ({colNames}) VALUES ({paramNames})";
+                    if (tableName.Equals("Employees", StringComparison.OrdinalIgnoreCase))
+                    {
+                        ExecuteNonQuery(conn, $"SET IDENTITY_INSERT {tableName} ON");
+                    }
+                    using (var insertCmd = new SqlCommand(insertQuery, conn))
+                    {
+                        foreach (var col in allColumns)
+                            insertCmd.Parameters.AddWithValue($"@{col.ColumnName}", row[col.ColumnName] ?? DBNull.Value);
+                        insertCmd.ExecuteNonQuery();
+                    }
+                    if (tableName.Equals("Employees", StringComparison.OrdinalIgnoreCase))
+                    {
+                        ExecuteNonQuery(conn, $"SET IDENTITY_INSERT {tableName} OFF");
+                    }
+                }
+            }
+        }
+
+        private void SyncEmployees(SqlConnection destConn)
+        {
+            SyncTable(destConn, "Employees", "EmployeeID");
         }
         #endregion
 
