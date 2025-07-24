@@ -25,6 +25,7 @@ namespace DataSync_Service
             _logFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SyncLog.txt");
         }
 
+        #region Main Methods
         public void SyncAllTables()
         {
             if (!Monitor.TryEnter(_syncLock))
@@ -115,6 +116,9 @@ namespace DataSync_Service
                 throw;
             }
         }
+        #endregion
+
+        #region Helper Methods
 
         private HashSet<string> GetExistingUserNames(SqlConnection conn)
         {
@@ -219,5 +223,7 @@ namespace DataSync_Service
             }
             catch { /* Ignore log errors */ }
         }
+
+        #endregion
     }
 }
